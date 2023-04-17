@@ -28,4 +28,5 @@
     <string name="precipitacao">Precipitação: 0%</string>
     <string name="velocidadeVento">Vento: 9km/h</string>
     <string name="umidade">Umidade: 71%</string>
+    <string name="localAtual">Manaus - AM</string>
 </resources>
