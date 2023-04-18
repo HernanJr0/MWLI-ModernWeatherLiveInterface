@@ -2,10 +2,12 @@ package com.android.mwli;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.media.Image;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ClimaActivity extends AppCompatActivity {
 
@@ -23,5 +25,15 @@ public class ClimaActivity extends AppCompatActivity {
             }
         });
 
+        FloatingActionButton fab = findViewById(R.id.fabinho);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(ClimaActivity.this,
+                        LembreteActivity.class);
+                startActivity(it);
+            }
+        });
     }
 }
