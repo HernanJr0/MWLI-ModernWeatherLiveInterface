@@ -2,12 +2,11 @@ package com.android.mwli;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintSet;
+
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +25,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
-
     }
 }
