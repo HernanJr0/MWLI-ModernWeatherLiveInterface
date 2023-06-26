@@ -61,9 +61,20 @@
             app:layout_constraintTop_toBottomOf="@id/editTextEmail"
             app:layout_constraintStart_toStartOf="@id/containerComponents"
             app:layout_constraintEnd_toEndOf="@id/containerComponents"
-            android:drawableRight="@drawable/ic_eye"
             android:hint="Digite uma senha"
             android:inputType="textPassword"/>
+
+        <ImageButton
+            android:id="@+id/buttonVerSenha"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_eye"
+            android:contentDescription="exibir"
+            android:backgroundTint="#00ffffff"
+            app:layout_constraintTop_toTopOf="@id/editTextSenha"
+            app:layout_constraintBottom_toBottomOf="@id/editTextSenha"
+            app:layout_constraintRight_toRightOf="@id/editTextSenha"
+            android:layout_marginEnd="9dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonCadastrar"

@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -32,6 +36,7 @@ public class TelaCadastro extends AppCompatActivity {
 
     private EditText editTextNome, editTextEmail, editTextSenha;
     private Button buttonCadastrar;
+    private ImageButton buttonVerSenha;
     String[] mensagens = {"Preencha todos os campos", "Cadastro realizado com sucesso"};
     String usuarioId;
 
@@ -51,13 +56,24 @@ public class TelaCadastro extends AppCompatActivity {
                 String senha = editTextSenha.getText().toString();
 
                 if(nome.isEmpty() || email.isEmpty() || senha.isEmpty()){
-                    Snackbar snackbar = Snackbar.make(v, mensagens[0], Snackbar.LENGTH_SHORT);
-                    snackbar.setBackgroundTint(Color.WHITE);
-                    snackbar.setTextColor(Color.BLACK);
-                    snackbar.show();
+                    Toast.makeText(TelaCadastro.this, mensagens[0], Toast.LENGTH_SHORT).show();
                 }else {
                     CadastrarUsuario(v);
                 }
+            }
+        });
+
+        buttonVerSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (buttonVerSenha.getContentDescription().toString().equals("exibir")) {
+                    editTextSenha.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    buttonVerSenha.setContentDescription("esconder");
+                }else {
+                    editTextSenha.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    buttonVerSenha.setContentDescription("exibir");
+                }
+                editTextSenha.setSelection(editTextSenha.getText().length());
             }
         });
     }
@@ -70,13 +86,9 @@ public class TelaCadastro extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
-
                     SalvarDadosUsuario();
-
-                    Snackbar snackbar = Snackbar.make(v, mensagens[1], Snackbar.LENGTH_SHORT);
-                    snackbar.setBackgroundTint(Color.WHITE);
-                    snackbar.setTextColor(Color.BLACK);
-                    snackbar.show();
+                    Toast.makeText(TelaCadastro.this, mensagens[1], Toast.LENGTH_SHORT).show();
+                    finish();
                 }else {
                     String erro;
                     try {
@@ -91,10 +103,7 @@ public class TelaCadastro extends AppCompatActivity {
                     }catch (Exception e){
                         erro = "Erro ao cadastrar usuário";
                     }
-                    Snackbar snackbar = Snackbar.make(v, erro, Snackbar.LENGTH_SHORT);
-                    snackbar.setBackgroundTint(Color.WHITE);
-                    snackbar.setTextColor(Color.BLACK);
-                    snackbar.show();
+                    Toast.makeText(TelaCadastro.this, erro, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -131,5 +140,6 @@ public class TelaCadastro extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextSenha = findViewById(R.id.editTextSenha);
         buttonCadastrar = findViewById(R.id.buttonCadastrar);
+        buttonVerSenha = findViewById(R.id.buttonVerSenha);
     }
 }
