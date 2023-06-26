@@ -1,4 +1,4 @@
-package com.android.mwli;
+package com.android.ecoweather;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,12 +15,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         View contTemp = findViewById(R.id.contTemperatura);
+        View menuButton = findViewById(R.id.menuButton);
 
         contTemp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent it = new Intent(MainActivity.this,
                         ClimaActivity.class);
+                startActivity(it);
+            }
+        });
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(MainActivity.this,
+                        ProfileActivity.class);
                 startActivity(it);
             }
         });

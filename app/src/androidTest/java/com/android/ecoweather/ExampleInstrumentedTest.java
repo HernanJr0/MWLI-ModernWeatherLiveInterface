@@ -1,4 +1,4 @@
-package com.android.mwli;
+package com.android.ecoweather;
 
 import android.content.Context;
 

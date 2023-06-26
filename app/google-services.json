@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:191436298297:android:4f4d6303478d12333915e8",
+        "mobilesdk_app_id": "1:191436298297:android:f37aaf360e9bff623915e8",
         "android_client_info": {
-          "package_name": "com.android.mwli"
+          "package_name": "com.android.ecoweather"
         }
       },
       "oauth_client": [
         {
-          "client_id": "191436298297-3oufc47t4oa0knhma8slksn991d86efb.apps.googleusercontent.com",
+          "client_id": "191436298297-jiecph9obe7irv0gra4t088ljrgejkjk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
