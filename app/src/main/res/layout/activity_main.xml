@@ -28,10 +28,10 @@
 
             <ImageView
                 android:id="@+id/logoApp"
-                android:layout_width="55dp"
-                android:layout_height="79dp"
-                android:layout_marginTop="44dp"
-                android:background="@drawable/logo_mwli"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="67dp"
+                android:background="@drawable/logo_name_1"
                 android:contentDescription="@string/logoDescricao"
                 app:layout_constraintBottom_toBottomOf="@+id/header"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
                 android:id="@+id/searchButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:background="@drawable/search_light"
+                android:background="@drawable/ic_search_light"
                 android:contentDescription="@string/searchButtonDescription"
                 app:layout_constraintBottom_toBottomOf="@+id/header"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +57,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:adjustViewBounds="false"
-                android:background="@drawable/menu_light"
+                android:background="@drawable/ic_menu_light"
                 android:contentDescription="@string/menuButtonDescription"
                 app:layout_constraintBottom_toBottomOf="@+id/header"
                 app:layout_constraintEnd_toStartOf="@+id/logoApp"
@@ -159,174 +159,6 @@
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!-- Titulo -->
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/open_sans_bold"
-            android:padding="10dp"
-            android:text="@string/ttlSecao"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/containerNoticias"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header" />
-
-        <!-- Notícias -->
-        <LinearLayout
-            android:id="@+id/containerNoticias"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/noticia1"
-                android:layout_width="match_parent"
-                android:layout_height="225dp"
-                android:background="@drawable/agricultura"
-                android:layout_marginBottom="20dp"
-                app:layout_constraintBottom_toTopOf="@id/noticia2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/header">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/fonteNoticia1"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.061"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.922" />
-
-                <TextView
-                    android:layout_width="379dp"
-                    android:layout_height="43dp"
-                    android:fontFamily="@font/open_sans"
-                    android:text="@string/ttlNoticia1"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:layout_width="82dp"
-                    android:layout_height="55dp"
-                    android:background="@drawable/greenpeace_logo"
-                    android:contentDescription="@string/logoNoticia1"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.051"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.108" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/noticia2"
-                android:layout_width="match_parent"
-                android:layout_height="225dp"
-                android:background="@drawable/ecologia"
-                android:layout_marginBottom="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/noticia1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/fonteNoticia2"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.061"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.922" />
-
-                <TextView
-                    android:layout_width="379dp"
-                    android:layout_height="43dp"
-                    android:fontFamily="@font/open_sans"
-                    android:text="@string/ttlNoticia2"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:layout_width="82dp"
-                    android:layout_height="55dp"
-                    android:background="@drawable/greenpeace_logo"
-                    android:contentDescription="@string/logoNoticia2"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.051"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.108" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/noticia3"
-                android:layout_width="match_parent"
-                android:layout_height="225dp"
-                android:background="@drawable/mobilizacao"
-                android:layout_marginBottom="20dp"
-                app:layout_constraintBottom_toTopOf="@id/noticia2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/header">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/fonteNoticia3"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.061"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.922" />
-
-                <TextView
-                    android:layout_width="379dp"
-                    android:layout_height="43dp"
-                    android:fontFamily="@font/open_sans"
-                    android:text="@string/ttlNoticia3"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:layout_width="82dp"
-                    android:layout_height="55dp"
-                    android:background="@drawable/greenpeace_logo"
-                    android:contentDescription="@string/logoNoticia3"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.051"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.108" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

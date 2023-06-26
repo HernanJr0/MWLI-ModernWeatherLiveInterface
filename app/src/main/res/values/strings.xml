@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">MWLI</string>
-    <string name="appName1">MWLI</string>
+    <string name="app_name">Eco Weather</string>
+    <string name="appName1">Eco Weather</string>
 
     <string name="searchButtonDescription">search button</string>
     <string name="menuButtonDescription">menu button</string>
@@ -29,4 +29,10 @@
     <string name="velocidadeVento">Vento: 9km/h</string>
     <string name="umidade">Umidade: 71%</string>
     <string name="localAtual">Manaus - AM</string>
+
+    <string name="entrar">Entrar</string>
+
+    <string name="textCadastro">Criar conta</string>
+
+    <string name="titleCadastro">Cadastre-se</string>
 </resources>
