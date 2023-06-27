@@ -24,16 +24,5 @@ public class ClimaActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-        FloatingActionButton fab = findViewById(R.id.fabinho);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent it = new Intent(ClimaActivity.this,
-                        LembreteActivity.class);
-                startActivity(it);
-            }
-        });
     }
 }

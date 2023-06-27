@@ -5,7 +5,6 @@
     <string name="searchButtonDescription">search button</string>
     <string name="menuButtonDescription">menu button</string>
     <string name="logoDescricao">app logo</string>
-    <string name="temperatura">30°C</string>
     <string name="scrollviewdescricao">scrollviewDescricao</string>
     <string name="fundoDescricao">floresta</string>
     <string name="parcialEnsolDescricao">icone parcialmente ensolarado</string>
@@ -34,5 +33,5 @@
 
     <string name="textCadastro">Criar conta</string>
 
-    <string name="titleCadastro">Cadastre-se</string>
+    <string name="titleCadastro">Crie uma conta</string>
 </resources>
