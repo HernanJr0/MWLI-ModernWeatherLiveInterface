@@ -4,15 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.os.Message;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
 
+import com.google.android.material.timepicker.MaterialTimePicker;
+import com.google.android.material.timepicker.TimeFormat;
+
+import java.text.MessageFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class LembreteActivity extends AppCompatActivity {
-    Button timeButton;
+
     int hour, minute;
 
     @Override
@@ -21,8 +28,6 @@ public class LembreteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lembretes);
 
         ImageButton backButton = findViewById(R.id.backButton);
-
-        timeButton = findViewById(R.id.timeButton);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,21 +45,26 @@ public class LembreteActivity extends AppCompatActivity {
     }
 
     public void popTimePicker(View view) {
-        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                hour = selectedHour;
-                minute = selectedMinute;
-                timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-            }
-        };
+        Button timeButton = findViewById(R.id.timeButton);
 
-        // int style = AlertDialog.THEME_HOLO_DARK;
+        int sysFormat = DateFormat.is24HourFormat(this) ? TimeFormat.CLOCK_24H : TimeFormat.CLOCK_12H;
 
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this, /*style,*/ onTimeSetListener, hour, minute, true);
+        int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        int minute = Calendar.getInstance().get(Calendar.MINUTE);
 
-        timePickerDialog.setTitle("Select Time");
-        timePickerDialog.show();
+        MaterialTimePicker picker = new MaterialTimePicker.Builder()
+                .setTimeFormat(sysFormat)
+                .setHour(hour)
+                .setMinute(minute)
+                .setTitleText("Select Date")
+                .build();
 
+        picker.addOnPositiveButtonClickListener(view1 ->
+                timeButton.setText(MessageFormat.format("{0}:{1}", String.format(Locale.getDefault(), "%02d", picker.getHour()),
+                                                                        String.format(Locale.getDefault(), "%02d", picker.getMinute()))
+                )
+        );
+
+        picker.show(getSupportFragmentManager(), picker.toString());
     }
 }
