@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +21,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private TextView textNomeUsuario, textEmailUsuario;
     private Button buttonDeslogar;
+    private ImageButton backButton;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String usuarioId;
 
@@ -29,6 +31,13 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         IniciarComponentes();
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         buttonDeslogar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,5 +74,6 @@ public class ProfileActivity extends AppCompatActivity {
         textEmailUsuario = findViewById(R.id.textEmailUsuario);
         textNomeUsuario = findViewById(R.id.textNomeUsuario);
         buttonDeslogar = findViewById(R.id.buttonDeslogar);
+        backButton = findViewById(R.id.backButton);
     }
 }

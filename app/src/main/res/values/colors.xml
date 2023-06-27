@@ -2,9 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="dark_grey">#202020</color>
-    <color name="light_grey">#303030</color>
+    <color name="medium_grey">#303030</color>
+    <color name="light_grey">#EEEEEE</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="cinzaClaro">#F5F5F5</color>
     <color name="orange">#FFB344</color>
     <color name="light_red">#FF3030</color>
     <color name="pink">#FB528B</color>
@@ -12,7 +12,7 @@
     <color name="light_blue">#E3F2FD</color>
     <color name="medium_blue">#1E88E5</color>
     <color name="dark_blue">#1A237E</color>
-    <color name="light_green">#E8F5E9</color>
+    <color name="light_green">#B9F6CA</color>
     <color name="medium_green">#4CAF50</color>
     <color name="dark_green">#1B5E20</color>
 </resources>

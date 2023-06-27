@@ -13,7 +13,7 @@
         android:id="@+id/containerMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F5F5F5"
+        android:background="@color/light_grey"
         tools:context=".MainActivity">
 
         <!-- Header -->
@@ -59,12 +59,10 @@
                 android:adjustViewBounds="false"
                 android:background="@drawable/ic_menu_light"
                 android:contentDescription="@string/menuButtonDescription"
-                app:layout_constraintBottom_toBottomOf="@+id/header"
-                app:layout_constraintEnd_toStartOf="@+id/logoApp"
-                app:layout_constraintHorizontal_bias="0.123"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="61dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.186" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- Temperatura -->
 
@@ -72,7 +70,7 @@
                 android:id="@+id/contTemperatura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#80505050"
+                android:background="@drawable/container_components"
                 android:padding="10dp"
                 app:layout_constraintBottom_toBottomOf="@+id/header"
                 app:layout_constraintEnd_toEndOf="@id/header"
@@ -88,16 +86,16 @@
                     android:background="@drawable/partly_sunny"
                     android:contentDescription="@string/parcialEnsolDescricao"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/temperatura"
+                    app:layout_constraintEnd_toStartOf="@+id/textViewTemperatura"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/temperatura"
+                    android:id="@+id/textViewTemperatura"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/temperatura"
+                    android:text="00°C"
                     android:textColor="#FFFFFF"
                     android:textSize="36sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -119,6 +117,7 @@
                 app:layout_constraintVertical_bias="0.02">
 
                 <TextView
+                    android:id="@+id/textViewSensacao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/open_sans"
@@ -126,6 +125,7 @@
                     android:textColor="#FFFFFF" />
 
                 <TextView
+                    android:id="@+id/textViewTipoClima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/open_sans"
@@ -134,6 +134,7 @@
                     android:textSize="24sp" />
 
                 <TextView
+                    android:id="@+id/textViewPrecipitação"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/open_sans"
@@ -142,6 +143,7 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/textViewVento"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/open_sans"
@@ -150,6 +152,7 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/textViewUmidade"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/open_sans"
@@ -159,6 +162,17 @@
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabinho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/light_green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_add" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
