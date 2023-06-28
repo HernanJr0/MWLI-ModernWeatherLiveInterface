@@ -62,6 +62,8 @@ public class TelaLogin extends AppCompatActivity {
                 String email = editTextEmail.getText().toString();
                 String senha = editTextSenha.getText().toString();
 
+                buttonEntrar.setClickable(false);
+
                 if(email.isEmpty() || senha.isEmpty()){
                     Toast.makeText(TelaLogin.this, erroPreencher, Toast.LENGTH_SHORT).show();
                 }else {
@@ -111,6 +113,7 @@ public class TelaLogin extends AppCompatActivity {
                         erro = "Erro ao efeturar login";
                     }
                     Toast.makeText(TelaLogin.this, erro, Toast.LENGTH_SHORT).show();
+                    buttonEntrar.setClickable(true);
                 }
             }
         });
