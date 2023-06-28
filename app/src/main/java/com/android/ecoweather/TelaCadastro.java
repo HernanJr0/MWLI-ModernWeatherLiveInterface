@@ -55,6 +55,8 @@ public class TelaCadastro extends AppCompatActivity {
                 String email = editTextEmail.getText().toString();
                 String senha = editTextSenha.getText().toString();
 
+                buttonCadastrar.setClickable(false);
+
                 if(nome.isEmpty() || email.isEmpty() || senha.isEmpty()){
                     Toast.makeText(TelaCadastro.this, mensagens[0], Toast.LENGTH_SHORT).show();
                 }else {
@@ -104,10 +106,11 @@ public class TelaCadastro extends AppCompatActivity {
                         erro = "Erro ao cadastrar usuário";
                     }
                     Toast.makeText(TelaCadastro.this, erro, Toast.LENGTH_SHORT).show();
+
+                    buttonCadastrar.setClickable(true);
                 }
             }
         });
-
     }
 
     private void SalvarDadosUsuario() {
