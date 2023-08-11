@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LembreteActivity">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
@@ -17,15 +17,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp">
 
                 <ImageButton
                     android:id="@+id/menuButton"
@@ -35,11 +37,11 @@
                     android:adjustViewBounds="false"
                     android:background="@drawable/ic_menu_light"
                     android:contentDescription="@string/menuButtonDescription"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView1"
+                    app:layout_constraintBottom_toBottomOf="@+id/month_title"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/textView1"
-                    app:layout_constraintTop_toTopOf="@+id/textView1"
+                    app:layout_constraintStart_toEndOf="@+id/month_title"
+                    app:layout_constraintTop_toTopOf="@+id/month_title"
                     app:layout_constraintVertical_bias="0.315" />
 
                 <ImageButton
@@ -55,144 +57,65 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="72dp"
-                    android:layout_height="38dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="5dp"
-                    android:text="April"
+                    android:id="@+id/month_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="Month"
                     android:textColor="#FFFFFF"
-                    android:textSize="30sp"
+                    android:textSize="22sp"
                     app:layout_constraintBottom_toBottomOf="@+id/backButton"
                     app:layout_constraintStart_toEndOf="@+id/backButton"
-                    app:layout_constraintTop_toTopOf="@+id/backButton"
+                    app:layout_constraintTop_toTopOf="@+id/backButton" />
+
+                <TextView
+                    android:id="@+id/year_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Year"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/month_title"
+                    app:layout_constraintStart_toEndOf="@+id/month_title"
+                    app:layout_constraintTop_toTopOf="@+id/month_title"
                     app:layout_constraintVertical_bias="0.0" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <include
+                android:id="@+id/titlesContainer"
+                layout="@layout/calendar_day_titles_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-                tools:layout_editor_absoluteX="0dp">
+                android:layout_marginTop="32dp"/>
 
-                <SlidingDrawer
-                    android:id="@+id/slide"
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/constraintLayout">
+
+
+                <com.kizitonwose.calendar.view.WeekCalendarView
+                    android:id="@+id/weekCalendarView"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:content="@+id/content"
-                    android:handle="@+id/handle"
-                    android:orientation="vertical"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="0dp">
+                    android:layout_height="wrap_content"
+                    app:cv_dayViewResource="@layout/calendar_day_layout"/>
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/handle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <com.google.android.material.chip.ChipGroup
-                            android:id="@+id/chipGroup"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:selectionRequired="true"
-                            app:singleSelection="true">
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/chip1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checkable="true"
-                                android:checked="false"
-                                android:text="16"
-                                app:checkedIconEnabled="false" />
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/chip2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checkable="true"
-                                android:checked="false"
-                                android:text="17"
-                                app:checkedIconEnabled="false" />
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/chip3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checkable="true"
-                                android:checked="false"
-                                android:text="18"
-                                app:checkedIconEnabled="false" />
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/chip4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checkable="true"
-                                android:checked="false"
-                                android:text="19"
-                                app:checkedIconEnabled="false" />
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/chip5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checkable="true"
-                                android:checked="false"
-                                android:text="20"
-                                app:checkedIconEnabled="false" />
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/chip6"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checkable="true"
-                                android:checked="false"
-                                android:text="21"
-                                app:checkedIconEnabled="false" />
+                <com.kizitonwose.calendar.view.CalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cv_dayViewResource="@layout/calendar_day_layout"
+                    app:cv_outDateStyle="endOfGrid"/>
 
 
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/chip7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checkable="true"
-                                android:checked="false"
-                                android:text="22"
-                                app:checkedIconEnabled="false" />
-                        </com.google.android.material.chip.ChipGroup>
-
-                        <ImageView
-                            android:layout_width="300dp"
-                            android:layout_height="15dp"
-                            android:background="@drawable/drawer"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.495"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/chipGroup"
-                            app:srcCompat="?attr/selectableItemBackground" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <!-- layout for the content of the SLidingDrawer -->
-                    <LinearLayout
-                        android:id="@id/content"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:background="@color/light_blue"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-                </SlidingDrawer>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
 
     </com.google.android.material.appbar.MaterialToolbar>
@@ -217,11 +140,23 @@
         android:layout_width="147dp"
         android:layout_height="81dp"
         android:layout_marginTop="44dp"
-        android:onClick="popTimePicker"
         android:text="horas"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+
+
+    <CheckBox
+        android:id="@+id/drawer"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
