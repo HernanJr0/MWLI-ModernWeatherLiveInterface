@@ -14,6 +14,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import android.util.Log;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView textViewTemperatura, textViewTipoClima;
@@ -28,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         IniciarComponentes();
 
-        long temp = Math.round(Math.random()*20)+15;
+        long temp = Math.round(Math.random() * 20) + 15;
         textViewTemperatura.setText(temp + "ºC");
-        if(temp > 30) {
+        if (temp > 30) {
             textViewTipoClima.setText("Ensolarado");
         } else if (temp < 30 && temp > 20) {
             textViewTipoClima.setText("Parcialmente Ensolarado");
@@ -44,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         menuButton.setOnClickListener(v -> {
-            Intent it = new Intent(this,  ProfileActivity.class);
+            Intent it = new Intent(this, ProfileActivity.class);
             startActivity(it);
         });
 
@@ -52,6 +60,22 @@ public class MainActivity extends AppCompatActivity {
             Intent it = new Intent(this, Tome.class);
             startActivity(it);
         });
+
+        String jsonFileString = Utils.getJsonFromAssets(getApplicationContext(), "News.json");
+        Log.i("data", "" + jsonFileString);
+
+        Gson gson = new Gson();
+        Type listUserType = new TypeToken<List<Noticia>>() {
+        }.getType();
+
+        List<Noticia> news = gson.fromJson(jsonFileString, listUserType);
+        for (int i = 0; i < news.size(); i++) {
+            Log.i("data",
+                    "> Item " + i +
+                            "\n" + news.get(i) // valor de cada propriedade do objeto
+            );
+        }
+
     }
 
     private void IniciarComponentes() {
