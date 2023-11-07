@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -28,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton floatingActionButton;
     private ConstraintLayout contTemperatura;
     private ImageButton menuButton;
+
+    private RecyclerView recyclerView;
+    private NewsAdapter newsAdapter;
+    private List<Noticia> noticias;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,20 +67,17 @@ public class MainActivity extends AppCompatActivity {
             startActivity(it);
         });
 
+        recyclerView = findViewById(R.id.recyclerViewNoticias);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        newsAdapter = new NewsAdapter();
+        recyclerView.setAdapter(newsAdapter);
+
         String jsonFileString = Utils.getJsonFromAssets(getApplicationContext(), "News.json");
-        Log.i("data", "" + jsonFileString);
-
         Gson gson = new Gson();
-        Type listUserType = new TypeToken<List<Noticia>>() {
-        }.getType();
+        Type listUserType = new TypeToken<List<Noticia>>() {}.getType();
+        noticias = gson.fromJson(jsonFileString, listUserType);
 
-        List<Noticia> news = gson.fromJson(jsonFileString, listUserType);
-        for (int i = 0; i < news.size(); i++) {
-            Log.i("data",
-                    "> Item " + i +
-                            "\n" + news.get(i) // valor de cada propriedade do objeto
-            );
-        }
+        newsAdapter.setNewsList(noticias);
 
     }
 
